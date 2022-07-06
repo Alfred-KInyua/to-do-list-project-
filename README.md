@@ -1,10 +1,9 @@
-# to-do-list
  "To-do-list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.
  
- # Delopyment
+ ## Delopyment
  Click [here](https://alfred-kinyua.github.io/to-do-list-project-/) to check out the online version
 
- # Built With
+ ## Built With
 - Languages - HTML, CSS and Javascript
 - Frameworks - None
 - Technologies - Web Technology
