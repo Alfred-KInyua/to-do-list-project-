@@ -1,3 +1,37 @@
-body {
-    background-color: bisque;
+.container {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(83, 81, 81, 0.26);
+}
+
+.footer {
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+input[type='text'] {
+  padding: 10px;
+  width: 88%;
+}
+
+form {
+  border: 1px solid rgba(83, 81, 81, 0.26);
+}
+
+button {
+  padding: 15px;
+}
+
+h2,
+li {
+  color: rgba(22, 21, 21, 0.671);
 }

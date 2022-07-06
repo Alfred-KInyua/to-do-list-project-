@@ -1,14 +1,27 @@
-import _ from 'lodash';
 import './style.css';
 
- function component() {
-   const element = document.createElement('div');
-
-   // Lodash, now imported by this script
-   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-
-   return element;
- }
-
- document.body.appendChild(component());
+document.addEventListener('DOMContentLoaded', () => {
+  const todoItems = [
+    {
+      description: 'Do homework',
+      completed: 'true',
+      index: 0,
+    },
+    {
+      description: 'Go shopping',
+      completed: 'true',
+      index: 1,
+    },
+    {
+      description: 'Prepare a budget',
+      completed: 'true',
+      index: 2,
+    }];
+  todoItems.forEach((todoItems) => {
+    const display = document.querySelector('.display');
+    const items = document.createElement('li');
+    const textItems = document.createTextNode(todoItems.description);
+    items.appendChild(textItems);
+    display.appendChild(items);
+  });
+});
