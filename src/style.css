@@ -1,0 +1,57 @@
+.container {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(83, 81, 81, 0.26);
+}
+
+.footer {
+  padding: 10px;
+  background-color: gray;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(14, 13, 13, 0.726);
+}
+
+input[type='text'] {
+  padding: 10px;
+  width: 88%;
+  border: unset;
+  font-style: italic;
+}
+
+form {
+  border: 1px solid rgba(83, 81, 81, 0.26);
+  padding: 10px;
+}
+
+button {
+  padding: 15px;
+}
+
+h1,
+li {
+  margin-left: 15px;
+  color: rgba(22, 21, 21, 0.671);
+}
+
+h1 {
+  font-size: small;
+}
+
+.push {
+  display: flex;
+}
+
+.inputs {
+  margin-left: 2px;
+  flex-basis: 95%;
+}
