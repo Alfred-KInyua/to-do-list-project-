@@ -17,8 +17,6 @@ document.querySelector('#check').addEventListener('click', (e) => {
     const desc = input.value;
     const done = new MyTodoClass(desc);
     done.addtodolist();
-  } else {
-    return 0;
   }
   return 0;
 });
