@@ -1,34 +1,36 @@
+import MyTodoClass from './modules/application.js';
 import './style.css';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const todoItems = [
-    {
-      description: 'Do homework',
-      completed: true,
-      index: 0,
-    },
-    {
-      description: 'Go shopping',
-      completed: true,
-      index: 1,
-    },
-    {
-      description: 'Prepare a budget',
-      completed: true,
-      index: 2,
-    }];
-  todoItems.forEach((todoItems) => {
-    const display = document.querySelector('.display');
-    const items = document.createElement('div');
-    items.innerHTML = `
-    <form action="/action_page.php">
-  
-  <div class ="push">
-  <input type="checkbox" id="stuff" name="stuff">
-  <label for="inputs" class="inputs"> ${todoItems.description}</label>  <i class="fa-solid fa-ellipsis-vertical"></i>  
-  </div>
-  </form>`;
+const input = document.querySelector('#run');
+const button = document.querySelector('#check');
 
-    display.appendChild(items);
+MyTodoClass.display();
+
+input.addEventListener('focus', (e) => {
+  e.preventDefault();
+  button.style.display = 'block';
+});
+
+document.querySelector('#check').addEventListener('click', (e) => {
+  e.preventDefault();
+  if (input.value) {
+    const desc = input.value;
+    const done = new MyTodoClass(desc);
+    done.addtodolist();
+  } else {
+    return 0;
+  }
+  return 0;
+});
+
+document.querySelectorAll('.clear').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    MyTodoClass.clearCompleted();
   });
+});
+
+document.querySelector('.reset').addEventListener('click', (e) => {
+  e.preventDefault();
+  MyTodoClass.reset();
 });
