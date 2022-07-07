@@ -1,57 +1,111 @@
-.container {
-  margin: 0 auto;
-  width: 50%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
-.header-section {
+
+body {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  align-items: center; 
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  background: #ebe1e1;
+  color: rgb(88, 83, 83);
+}
+
+.wrapper {
+  box-sizing: border-box;
+  width: 50%;
+  box-shadow: rgba(43, 42, 42, 0.2);
+  background:white;
+}
+
+.line {
+  border: 0.2px solid #e8e8e9;
+}
+
+.wrap {
+  display: flex;
   justify-content: space-between;
-  border: 1px solid rgba(83, 81, 81, 0.26);
-}
-
-.footer {
-  padding: 10px;
-  background-color: gray;
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
-  color: rgba(14, 13, 13, 0.726);
-}
-
-input[type='text'] {
-  padding: 10px;
-  width: 88%;
-  border: unset;
-  font-style: italic;
+  align-items: center;
+  padding: 0.9em 2em;
+  border-bottom: 0.2px solid #e8e8e9;
 }
 
 form {
-  border: 1px solid rgba(83, 81, 81, 0.26);
-  padding: 10px;
-}
-
-button {
-  padding: 15px;
-}
-
-h1,
-li {
-  margin-left: 15px;
-  color: rgba(22, 21, 21, 0.671);
-}
-
-h1 {
-  font-size: small;
-}
-
-.push {
   display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 0.2px solid #e8e8e9;
 }
 
-.inputs {
-  margin-left: 2px;
-  flex-basis: 95%;
+
+form button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  display: none;
+  font-size: 1.2rem;
 }
+
+.textarea.line-through {
+  text-decoration: line-through;
+}
+
+form input::placeholder {
+  font-style: italic;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.list-item {
+  padding: 4px 24px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.2px solid #e8e8e9;
+}
+form input { 
+  outline: none;  
+  border: none;
+}
+.form-group {
+  flex: 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-group input {
+  margin-right: 5px;
+}
+
+.form-group textarea {
+  padding: 5px;
+  width: 90%;
+  display: inline-block;
+  border: none;
+  resize: none;
+  outline-width: 0.2px;
+}
+
+.action-icons i {
+  margin: 0 12px;
+}
+
+#editInput {
+  display: none;
+}
+
+.footer {
+  padding: 12px;
+  background: #f3f3f3;
+}
+
+.footer a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+}
+

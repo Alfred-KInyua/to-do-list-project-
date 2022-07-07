@@ -1,34 +1,41 @@
+import  myTodoClass  from './modules/sorage.js';
 import './style.css';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const todoItems = [
-    {
-      description: 'Do homework',
-      completed: true,
-      index: 0,
-    },
-    {
-      description: 'Go shopping',
-      completed: true,
-      index: 1,
-    },
-    {
-      description: 'Prepare a budget',
-      completed: true,
-      index: 2,
-    }];
-  todoItems.forEach((todoItems) => {
-    const display = document.querySelector('.display');
-    const items = document.createElement('div');
-    items.innerHTML = `
-    <form action="/action_page.php">
-  
-  <div class ="push">
-  <input type="checkbox" id="stuff" name="stuff">
-  <label for="inputs" class="inputs"> ${todoItems.description}</label>  <i class="fa-solid fa-ellipsis-vertical"></i>  
-  </div>
-  </form>`;
 
-    display.appendChild(items);
+const form = document.querySelector('.form');
+const input = document.querySelector('#run');
+const submitBtn = document.querySelector('#submit');
+
+myTodoClass.display();
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const description = input.value;
+  const todo = new myTodoClass(description);
+  todo.addTodo();
+});
+
+input.addEventListener('focus', (e) => {
+  e.preventDefault();
+  submitBtn.style.display = 'block';
+});
+
+document.querySelector('#submit').addEventListener('click', (e) => {
+  e.preventDefault();
+  const description = input.value;
+  const todo = new myTodoClass(description);
+  todo.addTodo();
+});
+
+document.querySelectorAll('.clear').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    myTodoClass.clearCompleted();
   });
 });
+
+document.querySelector('.reset').addEventListener('click', (e) => {
+  e.preventDefault();
+  myTodoClass.reset();
+});
+
