@@ -2,17 +2,9 @@ import MyTodoClass from './modules/application.js';
 import './style.css';
 
 const input = document.querySelector('#run');
-const form = document.querySelector('.form');
 const button = document.querySelector('#check');
 
 MyTodoClass.display();
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const desc = input.value;
-  const done = new MyTodoClass(desc);
-  done.addtodolist();
-});
 
 input.addEventListener('focus', (e) => {
   e.preventDefault();
@@ -21,9 +13,14 @@ input.addEventListener('focus', (e) => {
 
 document.querySelector('#check').addEventListener('click', (e) => {
   e.preventDefault();
-  const desc = input.value;
-  const done = new MyTodoClass(desc);
-  done.addtodolist();
+  if (input.value) {
+    const desc = input.value;
+    const done = new MyTodoClass(desc);
+    done.addtodolist();
+  } else {
+    return 0;
+  }
+  return 0;
 });
 
 document.querySelectorAll('.clear').forEach((link) => {

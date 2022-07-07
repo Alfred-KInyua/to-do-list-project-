@@ -3,7 +3,7 @@ export default class MyTodoClass {
     this.desc = desc;
   }
 
-  static resetInput = () => {
+  static clearInput = () => {
     const capture = document.querySelector('#run');
     capture.value = '';
     return true;
@@ -54,7 +54,7 @@ export default class MyTodoClass {
     let newtodoList = JSON.parse(localStorage.getItem('todo'));
     newtodoList = [...info, todo];
     localStorage.setItem('todo', JSON.stringify(newtodoList));
-    MyTodoClass.resetInput();
+    MyTodoClass.clearInput();
     MyTodoClass.display();
     MyTodoClass.updateIndex();
   }
@@ -64,15 +64,15 @@ export default class MyTodoClass {
     const list = document.querySelector('.list');
     let str = '';
     todoList.forEach((todo) => {
-      str += `<div class="list-item">
+      str += `<form class="list-item">
             <div class="form-group">
-            <input type="checkbox" id="${todo.index}" value="${todo.desc}" class="checkbox">
-            <textarea class="textarea">${todo.desc}</textarea>
-          </div>
+             <input type="checkbox" id="${todo.index}" value="${todo.desc}" class="checkbox" required>
+            <textarea required class="textarea" >${todo.desc}</textarea>
+            </div>
           <div class="action-icons">
               <i class="fa fa-trash-can delete" id="delete"></i>
           </div>
-          </div>`;
+          </form>`;
     });
     list.innerHTML = str;
     MyTodoClass.addEventListenersToListItems();
