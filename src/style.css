@@ -1,20 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
-
 body {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
-  background: #ebe1e1;
-  color: rgb(88, 83, 83);
+  background-color: gray;
 }
 
 .wrapper {
-  box-sizing: border-box;
   width: 50%;
-  box-shadow: rgba(43, 42, 42, 0.2);
-  background:white;
+  background: white;
 }
 
 .line {
@@ -36,13 +32,21 @@ form {
   border-bottom: 0.2px solid #e8e8e9;
 }
 
+.form-group textarea {
+  padding: 6px;
+  width: 90%;
+  display: inline-block;
+  border: none;
+  resize: none;
+  outline-width: 0.2px;
+}
 
 form button {
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
   display: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .textarea.line-through {
@@ -63,10 +67,12 @@ form input::placeholder {
   justify-content: space-between;
   border-bottom: 0.2px solid #e8e8e9;
 }
-form input { 
-  outline: none;  
+
+form input {
+  outline: none;
   border: none;
 }
+
 .form-group {
   flex: 2;
   width: 100%;
@@ -79,33 +85,23 @@ form input {
   margin-right: 5px;
 }
 
-.form-group textarea {
-  padding: 5px;
-  width: 90%;
-  display: inline-block;
-  border: none;
-  resize: none;
-  outline-width: 0.2px;
-}
-
-.action-icons i {
-  margin: 0 12px;
-}
-
 #editInput {
   display: none;
 }
 
-.footer {
+.action-icons i {
+  margin: 0 1em;
+}
+
+.footer-section {
   padding: 12px;
   background: #f3f3f3;
 }
 
-.footer a {
+.footer-section a {
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
   color: inherit;
 }
-

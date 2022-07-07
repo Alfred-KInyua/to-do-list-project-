@@ -1,18 +1,18 @@
-export default class myTodoClass {
-  constructor(description) {
-    this.description = description;
+export default class MyTodoClass {
+  constructor(desc) {
+    this.desc = desc;
   }
 
-  static clearInput = () => {
-    const inputField = document.querySelector('#run');
-    inputField.value = '';
+  static resetInput = () => {
+    const capture = document.querySelector('#run');
+    capture.value = '';
     return true;
   }
 
   static getTodo = () => {
     let todoList = [];
-    const data = localStorage.getItem('todo');
-    if (data === null) {
+    const info = localStorage.getItem('todo');
+    if (info === null) {
       localStorage.setItem('todo', JSON.stringify(todoList));
     }
     todoList = JSON.parse(localStorage.getItem('todo'));
@@ -20,7 +20,7 @@ export default class myTodoClass {
   }
 
   static getIndex = () => {
-    const todoList = myTodoClass.getTodo();
+    const todoList = MyTodoClass.getTodo();
     let index = 0;
     if (todoList === null) {
       return index + 1;
@@ -30,7 +30,7 @@ export default class myTodoClass {
   }
 
   static updateIndex = () => {
-    const todoList = myTodoClass.getTodo();
+    const todoList = MyTodoClass.getTodo();
     todoList.forEach((item) => {
       const indx = todoList.findIndex((obj) => obj === item);
       item.index = indx + 1;
@@ -38,85 +38,85 @@ export default class myTodoClass {
     localStorage.setItem('todo', JSON.stringify(todoList));
   }
 
-  addTodo = () => {
-    const data = myTodoClass.getTodo();
-    const index = myTodoClass.getIndex();
+  addtodolist = () => {
+    const info = MyTodoClass.getTodo();
+    const index = MyTodoClass.getIndex();
     const todo = {
       index,
-      description: this.description,
+      desc: this.desc,
       completed: false,
     };
 
-    if (data === null) {
-      data.push(todo);
-      localStorage.setItem('todo', JSON.stringify(data));
+    if (info === null) {
+      info.push(todo);
+      localStorage.setItem('todo', JSON.stringify(info));
     }
     let newtodoList = JSON.parse(localStorage.getItem('todo'));
-    newtodoList = [...data, todo];
+    newtodoList = [...info, todo];
     localStorage.setItem('todo', JSON.stringify(newtodoList));
-    myTodoClass.clearInput();
-    myTodoClass.display();
-    myTodoClass.updateIndex();
+    MyTodoClass.resetInput();
+    MyTodoClass.display();
+    MyTodoClass.updateIndex();
   }
 
   static display() {
-    const todoList = myTodoClass.getTodo();
+    const todoList = MyTodoClass.getTodo();
     const list = document.querySelector('.list');
     let str = '';
     todoList.forEach((todo) => {
-      str += `<li class="list-item">
+      str += `<div class="list-item">
             <div class="form-group">
-            <input type="checkbox" id="${todo.index}" value="${todo.description}" class="checkbox">
-            <textarea class="textarea">${todo.description}</textarea>
+            <input type="checkbox" id="${todo.index}" value="${todo.desc}" class="checkbox">
+            <textarea class="textarea">${todo.desc}</textarea>
           </div>
           <div class="action-icons">
               <i class="fa fa-trash-can delete" id="delete"></i>
           </div>
-          </li>`;
+          </div>`;
     });
     list.innerHTML = str;
-    myTodoClass.addEventListenersToListItems();
-    myTodoClass.updateIndex();
-    myTodoClass.checkedTask();
+    MyTodoClass.addEventListenersToListItems();
+    MyTodoClass.updateIndex();
+    MyTodoClass.checkedTask();
   }
 
   static removeTodo = (index) => {
-    const todoList = myTodoClass.getTodo();
+    const todoList = MyTodoClass.getTodo();
     todoList.splice(index, 1);
     localStorage.setItem('todo', JSON.stringify(todoList));
-    myTodoClass.addEventListenersToListItems();
-    myTodoClass.display();
-    myTodoClass.updateIndex();
+    MyTodoClass.addEventListenersToListItems();
+    MyTodoClass.display();
+    MyTodoClass.updateIndex();
   }
 
   static updateTodo = (index, value) => {
-    const todoList = myTodoClass.getTodo();
+    const todoList = MyTodoClass.getTodo();
     todoList.forEach((item) => {
       const indx = todoList.findIndex((obj) => obj === item);
       if (index === indx) {
-        item.description = value;
+        item.desc = value;
       }
       localStorage.setItem('todo', JSON.stringify(todoList));
     });
-    myTodoClass.updateIndex();
+    MyTodoClass.updateIndex();
   }
 
   static completed = (index, value) => {
-    const todoList = myTodoClass.getTodo();
+    const todoList = MyTodoClass.getTodo();
     todoList[index - 1].completed = value;
     localStorage.setItem('todo', JSON.stringify(todoList));
-    myTodoClass.updateIndex();
+    MyTodoClass.updateIndex();
   }
 
   static clearCompleted = () => {
-    const todoList = myTodoClass.getTodo();
+    const todoList = MyTodoClass.getTodo();
     const uncompleted = todoList.filter((todo) => todo.completed === false);
     localStorage.setItem('todo', JSON.stringify(uncompleted));
-    myTodoClass.display();
+    MyTodoClass.display();
   }
 
   static checkedTask = () => {
-    const todoList = myTodoClass.getTodo();
+    const todoList = MyTodoClass.getTodo();
     todoList.forEach((item) => {
       if (item.completed === true) {
         document.querySelector(`#\\3${item.index}`).checked = true;
@@ -133,19 +133,19 @@ export default class myTodoClass {
     document.querySelectorAll('.checkbox').forEach((link) => {
       link.addEventListener('click', (e) => {
         link.nextElementSibling.classList.toggle('line-through');
-        myTodoClass.completed(link.id, e.target.checked);
+        MyTodoClass.completed(link.id, e.target.checked);
       });
     });
     document.querySelectorAll('.textarea').forEach((link, index) => {
       link.addEventListener('keyup', (e) => {
         e.preventDefault();
-        myTodoClass.updateTodo(index, e.target.value);
+        MyTodoClass.updateTodo(index, e.target.value);
       });
     });
     document.querySelectorAll('.delete').forEach((link, index) => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        myTodoClass.removeTodo(index);
+        MyTodoClass.removeTodo(index);
       });
     });
   };

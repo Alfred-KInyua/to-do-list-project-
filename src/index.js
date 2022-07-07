@@ -1,41 +1,39 @@
-import  myTodoClass  from './modules/sorage.js';
+import MyTodoClass from './modules/application.js';
 import './style.css';
 
-
-const form = document.querySelector('.form');
 const input = document.querySelector('#run');
-const submitBtn = document.querySelector('#submit');
+const form = document.querySelector('.form');
+const button = document.querySelector('#check');
 
-myTodoClass.display();
+MyTodoClass.display();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const description = input.value;
-  const todo = new myTodoClass(description);
-  todo.addTodo();
+  const desc = input.value;
+  const done = new MyTodoClass(desc);
+  done.addtodolist();
 });
 
 input.addEventListener('focus', (e) => {
   e.preventDefault();
-  submitBtn.style.display = 'block';
+  button.style.display = 'block';
 });
 
-document.querySelector('#submit').addEventListener('click', (e) => {
+document.querySelector('#check').addEventListener('click', (e) => {
   e.preventDefault();
-  const description = input.value;
-  const todo = new myTodoClass(description);
-  todo.addTodo();
+  const desc = input.value;
+  const done = new MyTodoClass(desc);
+  done.addtodolist();
 });
 
 document.querySelectorAll('.clear').forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
-    myTodoClass.clearCompleted();
+    MyTodoClass.clearCompleted();
   });
 });
 
 document.querySelector('.reset').addEventListener('click', (e) => {
   e.preventDefault();
-  myTodoClass.reset();
+  MyTodoClass.reset();
 });
-
