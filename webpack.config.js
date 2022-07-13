@@ -19,7 +19,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: "/to-do-list-project-/",
+    publicPath: '/to-do-list-project-/',
     clean: true,
   },
   module: {
