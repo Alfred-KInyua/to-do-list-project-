@@ -36,6 +36,7 @@ describe('run add test', () => {
     expect(info.length).toBe(0);
   });
 
+
   test('test updating completed tasks', () => {
     MyTodoClass.completed(1, true);
     const info = JSON.parse(localStorage.getItem('todo'));
