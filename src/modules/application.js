@@ -110,8 +110,8 @@ export default class MyTodoClass {
 
   static clearCompleted = () => {
     const todoList = MyTodoClass.getTodo();
-    const uncompleted = todoList.filter((todo) => todo.completed === false);
-    localStorage.setItem('todo', JSON.stringify(uncompleted));
+    const unfinished = todoList.filter((todo) => todo.completed === false);
+    localStorage.setItem('todo', JSON.stringify(unfinished));
     MyTodoClass.display();
   }
 
